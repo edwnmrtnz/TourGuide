@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <!--<View-->
@@ -14,27 +15,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#e74c3c"
+        android:background="#f5f5f5"
         android:orientation="vertical"
-        android:gravity="center"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/toolTipTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Default Title"
-            android:textColor="@color/White"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:textColor="#474747"
+            android:lineSpacingExtra="3sp"
+            tools:text="Fulfillment Partner" />
 
         <TextView
             android:id="@+id/toolTipDescTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Default Description"
-            android:textColor="@color/White" />
+            android:textSize="14sp"
+            android:textColor="#474747"
+            android:lineSpacingExtra="4sp"
+            tools:text="Ang pag-Checkout ng inyong mga bilihin ay organisado na base sa fulfillment partner."
+            />
+
+        <android.support.v7.widget.AppCompatButton
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textAllCaps="false"
+            android:id="@+id/btnClick"
+            android:layout_gravity="right"
+            android:background="@color/LawnGreen"
+            android:text="Sunod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
 </LinearLayout>

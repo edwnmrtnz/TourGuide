@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.Point
 import android.os.Build
 import android.support.v4.view.ViewCompat
+import android.support.v7.widget.AppCompatButton
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -15,6 +16,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.Toast
 import kotlinx.android.synthetic.main.tourguide_tooltip.view.*
 import net.i2p.android.ext.floatingactionbutton.FloatingActionButton
 import tourguide.tourguide.util.locationOnScreen
@@ -39,6 +41,7 @@ open class TourGuide(private val activity: Activity) {
         private set
     var mPointer: Pointer? = null
     var overlay: Overlay? = null
+    var btnClick : AppCompatButton? = null
 
     private val screenWidth: Int
         get() = activity.resources?.displayMetrics?.widthPixels ?: 0
@@ -213,6 +216,21 @@ open class TourGuide(private val activity: Activity) {
 
             if (_toolTip.getCustomView() == null) {
                 toolTipView = layoutInflater.inflate(R.layout.tourguide_tooltip, null)
+
+                btnClick = toolTipView?.findViewById(R.id.btnClick)
+
+                btnClick?.let {
+                    if(toolTip?.btnText.isNullOrEmpty()) {
+                        btnClick?.visibility = View.GONE
+                    } else {
+                        it.text = toolTip?.btnText
+                        btnClick?.visibility = View.VISIBLE
+                    }
+                    btnClick?.setOnClickListener {
+                        overlay?.mOnClickListener?.onClick(btnClick)
+                    }
+                }
+
                 toolTipView?.apply {
 
                     /* set tourguide_tooltip attributes */

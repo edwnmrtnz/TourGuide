@@ -22,6 +22,7 @@ class ToolTip() {
     var mOnClickListener: View.OnClickListener? = null
     var mCustomView: ViewGroup? = null
     var mWidth: Int = 0
+    var btnText : String
 
     init {
         /* default values */
@@ -36,6 +37,7 @@ class ToolTip() {
         mEnterAnimation.interpolator = BounceInterpolator()
         mShadow = true
         mWidth = -1
+        btnText = ""
 
         // TODO: exit animation
         mGravity = Gravity.CENTER
